@@ -31,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,6 +42,15 @@
             this.button7 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,6 +65,8 @@
             this.progress.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +82,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.SteelBlue;
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
@@ -85,19 +98,34 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("SimSun", 10F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(81, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2, 4, 0, 0);
-            this.label1.Size = new System.Drawing.Size(156, 18);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "LS 局域网服务器配置器";
             this.label1.UseMnemonic = false;
             this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDoubleClick);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            // 
+            // button8
+            // 
+            this.button8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(81, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "⚙️ 通用设置";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button6
             // 
@@ -221,6 +249,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
@@ -229,6 +258,129 @@
             this.tabPage1.Size = new System.Drawing.Size(671, 512);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.checkBox4);
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Orange;
+            this.groupBox1.Location = new System.Drawing.Point(3, 96);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(665, 413);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "通用设置";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.label6.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label6.Location = new System.Drawing.Point(3, 157);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(208, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(329, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "一般情况默认即可";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(3, 125);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(659, 32);
+            this.panel4.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(211, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(448, 29);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "../../../../Contents/";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Location = new System.Drawing.Point(5, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label5.Size = new System.Drawing.Size(206, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "依赖文件(Contents) 目录：";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = true;
+            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox4.Location = new System.Drawing.Point(3, 100);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.checkBox4.Size = new System.Drawing.Size(659, 25);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "启用兵线";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox3.Location = new System.Drawing.Point(3, 75);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.checkBox3.Size = new System.Drawing.Size(659, 25);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "启用CD";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox2.Location = new System.Drawing.Point(3, 50);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.checkBox2.Size = new System.Drawing.Size(659, 25);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "启用耗蓝";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox1.Location = new System.Drawing.Point(3, 25);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.checkBox1.Size = new System.Drawing.Size(659, 25);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "启用作弊";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label4
             // 
@@ -354,6 +506,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -382,6 +538,16 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

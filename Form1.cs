@@ -22,10 +22,35 @@ namespace LeagueSandbox_LAN_Server_Launcher
         public static List<int[]> blueMapping = new List<int[]>();
         
         private int progressValue = 100;
+        private bool debug = false;
+        private string contentPath;
+        private int scanDepth = 10;
+        private bool cheatsEnabled = false;
+        private bool manacostsEnabled = true;
+        private bool cooldownsEnabled = true;
+        private bool minionSpawnsEnabled = true;
 
         public Form1()
         {
             InitializeComponent();
+            // Content Path Scan, CPS
+            string gDirectory = "";
+            for (int i = 1; i < scanDepth + 1; i++)
+            {
+                string directory = "";
+                for (int j = 1; j < i + 1; j++)
+                {
+                    directory += "../";
+                }
+                if (Directory.Exists(directory + "Contents/"))
+                {
+                    contentPath = directory + "Contents/";
+                    textBox1.Text = directory + "Contents/";
+                    gDirectory = directory;
+                    break;
+                }
+                if (Directory.Exists(gDirectory)) break;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -245,6 +270,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (debug) return; 
             if (!File.Exists("GameServerConsole.exe") || !Directory.Exists("Settings\\"))
             {
                 MessageBox.Show("未找到服务器文件，请将本程序至于GameServerConsole.exe同级目录！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -274,13 +300,43 @@ namespace LeagueSandbox_LAN_Server_Launcher
             }
             setProgess(50);
             button3.Text = "建立数据结构...";
-            return new Game(players);
+            return new Game(players, manacostsEnabled, cooldownsEnabled, cheatsEnabled, minionSpawnsEnabled, contentPath);
         }
         private string buildJson(Game game)
         {
             setProgess(75);
             button3.Text = "构建Json...";
             return JsonConvert.SerializeObject(game, Formatting.Indented);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            contentPath = textBox1.Text;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            cheatsEnabled = checkBox1.Checked;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            manacostsEnabled = checkBox2.Checked;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            cooldownsEnabled = checkBox3.Checked;
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            minionSpawnsEnabled = checkBox4.Checked;
         }
     }
 }
