@@ -59,6 +59,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -262,6 +264,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.checkBox5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.checkBox4);
@@ -305,7 +309,9 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBox1.Location = new System.Drawing.Point(211, 0);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(448, 29);
@@ -486,6 +492,34 @@
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox5.ForeColor = System.Drawing.Color.PaleGreen;
+            this.checkBox5.Location = new System.Drawing.Point(3, 177);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.checkBox5.Size = new System.Drawing.Size(659, 25);
+            this.checkBox5.TabIndex = 6;
+            this.checkBox5.Text = "启用测试功能";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.label7.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label7.Location = new System.Drawing.Point(3, 202);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.label7.Size = new System.Drawing.Size(356, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "警告！测试功能已启用！服务器可能不会正常启动！";
+            this.label7.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -548,6 +582,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Label label7;
     }
 }
 

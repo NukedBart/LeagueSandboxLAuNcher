@@ -51,7 +51,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
             ["29"] = 5335,
             ["30"] = 5335
         };
-        public Player(int playerId, string rank, string name, string champion, string team, string summoner1, string summoner2)
+        public Player(int playerId, string rank, string name, string champion, string team, string summoner1, string summoner2, int skin = 0)
         {
             this.playerId = playerId;
             this.rank = rank;
@@ -60,6 +60,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
             this.team = team;
             this.summoner1 = summoner1;
             this.summoner2 = summoner2;
+            this.skin = skin;
         }
     }
 }

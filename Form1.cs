@@ -20,9 +20,10 @@ namespace LeagueSandbox_LAN_Server_Launcher
         public static List<int> idList = new List<int>();
         public static List<int[]> redMapping = new List<int[]>();
         public static List<int[]> blueMapping = new List<int[]>();
+        public static bool testingMode = false;
         
         private int progressValue = 100;
-        private bool debug = false;
+        private bool debug = true;
         private string contentPath;
         private int scanDepth = 10;
         private bool cheatsEnabled = false;
@@ -82,10 +83,24 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 Console.WriteLine(buffer);
                 setProgess(85);
                 button3.Text = "写入Json...";
-                File.WriteAllText("Settings\\GameInfo.json", buffer);
+                try
+                {
+                    File.WriteAllText("Settings\\GameInfo.json", buffer);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("无法找到目录：\n" + ex.Message, "错误 - 无法找到目录", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 setProgess(95);
                 button3.Text = "启动服务器...";
-                Process.Start("GameServerConsole.exe");
+                try
+                {
+                    Process.Start("GameServerConsole.exe");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("无法启动服务器：\n" + ex.Message, "错误 - 无法启动服务器", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 setProgess(100);
                 button3.Text = "启动服务器！";
                 launchDisabled = false;
@@ -187,6 +202,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 red[redPlayerCount - 1].Show();
                 tabControl1.SelectedIndex = playerCount;
                 idList.Add(playerId);
+                listBox1.SelectedIndex = redPlayerCount - 1;
             }
             else
             {
@@ -217,6 +233,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 blue[bluePlayerCount - 1].Show();
                 tabControl1.SelectedIndex = playerCount;
                 idList.Add(playerId);
+                listBox2.SelectedIndex = bluePlayerCount - 1;
             }
             else
             {
@@ -316,7 +333,12 @@ namespace LeagueSandbox_LAN_Server_Launcher
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            contentPath = textBox1.Text;
+            if (Directory.Exists(textBox1.Text))
+            {
+                contentPath = textBox1.Text;
+                textBox1.ForeColor = Color.WhiteSmoke;
+            }
+            else textBox1.ForeColor = Color.Red;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -337,6 +359,26 @@ namespace LeagueSandbox_LAN_Server_Launcher
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             minionSpawnsEnabled = checkBox4.Checked;
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            label7.Visible = checkBox5.Checked;
+            checkBox5.ForeColor = 
+                !checkBox5.Checked ? 
+                Color.PaleGreen : 
+                Color.OrangeRed ;
+            testingMode = checkBox5.Checked;
+            for (int i = 0; i < redPlayerCount; i++)
+            {
+                Form2 cache = tabControl1.TabPages[redMapping[i][1]].Controls[0] as Form2;
+                cache.updateTestMode();
+            }
+            for (int i = 0; i < bluePlayerCount; i++)
+            {
+                Form2 cache = tabControl1.TabPages[blueMapping[i][1]].Controls[0] as Form2;
+                cache.updateTestMode();
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
         private int lastValue = 0;
         private int lastSummoner1;
         private int lastSummoner2;
+        private int skin = 0;
 
         public Form2(int id, string name, string team, TabControl parent, ListBox parentListbox, int[] currentMapping, string summoner1 = "治疗", string summoner2 = "闪现", string rank = "钻石", string champion = "伊泽瑞尔")
         {
@@ -38,6 +39,8 @@ namespace LeagueSandbox_LAN_Server_Launcher
             this.currentMapping = currentMapping;
             this.parent = parent;
             InitializeComponent();
+
+            updateTestMode();
 
             if (team == "RED") this.BackColor = Color.Maroon;
             else this.BackColor = Color.MidnightBlue;
@@ -133,7 +136,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
         }
         public Player buildPlayer()
         {
-            return new Player(id, rank, name, champion, team, summoner1, summoner2);
+            return new Player(id, rank, name, champion, team, summoner1, summoner2, skin);
         }
 
         private void playerId_ValueChanged(object sender, EventArgs e)
@@ -218,6 +221,17 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 return;
             }
             playerSummoner2.SelectedIndex = lastSummoner2;
+        }
+        public void updateTestMode()
+        {
+            panel7.Visible = Form1.testingMode;
+            numericUpDown1.Value = 0;
+            skin = 0;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            skin = Convert.ToInt32(numericUpDown1.Value);
         }
     }
 }
